@@ -1,7 +1,7 @@
 from cv2 import imread, QRCodeDetector
 from os import popen, remove
 from pyautogui import screenshot
-from autoit import win_wait, win_activate
+from autoit import win_wait, win_activate, win_wait_close
 import argparse
 import time
 
@@ -17,7 +17,7 @@ def parse_args():
                         help="Input a list of usernames (sperated by a camma nd) that you want logged in")
     parser.add_argument("--path", "-p", required=False,
                         help="Input the path to where steam.exe is located",default="C:\Program Files (x86)\Steam\\Steam.exe")
-    parser.add_argument("--arguments", "-a", required=False,
+    parser.add_argument("--arguments", "-a", required=False, nargs="+",
                         help='Input option arguments for steam ex:"-applaunch 730 -silinet"',default="")
     
     global path_to_steam
@@ -56,5 +56,10 @@ def log_into_account(username):
 
 
 username_list = parse_args()
+arg_string = ""
+for arg in steam_args:
+    arg_string = arg_string + f'-{arg} '
+steam_args = arg_string
 for username in username_list:
     log_into_account(username)
+    win_wait_close("Sign in to Steam")
