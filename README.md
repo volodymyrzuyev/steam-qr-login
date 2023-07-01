@@ -20,5 +20,5 @@ Command line options:
 >| `--arguments` <br> `(-a)` | **optional** | `""` | Arguments (in the form "arg0", "arg1", "arg2") that will be passed to *steam.exe* on startup with out the "-".
 
 # Example:
-`py steam_qr_login.py -u first_steam_account,second_steam_account,last_steam_account -p "C:\Program Files\games\Steam\steam.exe" -a "applaunch 730", "nochatui", "nofriendsui", "silent", "w 480", "h 360", "exec autoexec.cfg"`
+`py steam_qr_login.py -u first_steam_account, second_steam_account, last_steam_account -p "C:\Program Files\games\Steam\steam.exe" -a "applaunch 730", "nochatui", "nofriendsui", "silent", "w 480", "h 360", "exec autoexec.cfg"`
                    
